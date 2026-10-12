@@ -1,0 +1,37 @@
+[
+  {
+    "claim": "INT8 post-training static quantization (QDQ, per-channel) with a 300-image calibration set, 500-image COCO eval",
+    "evidence": "best E2_RR mAP50-95 0.3812 \u2192 0.3663; size 12.24 \u2192 3.49 MB",
+    "cells": "Q14, Q14"
+  },
+  {
+    "claim": "Ablated calibration method, head exclusion and reduce_range",
+    "evidence": "B 0.000, E1 0.284, E2 0.337, Entropy 0.342, Percentile 0.343, E2_RR 0.366",
+    "cells": "Q12, Q14"
+  },
+  {
+    "claim": "Diagnosed full-INT8 collapse of YOLOv8's output",
+    "evidence": "0 dets; shared output scale 2.54 vs max score 0.93",
+    "cells": "Q10, Q13"
+  },
+  {
+    "claim": "Memory-bounded chunked calibration, validated against single-pass",
+    "evidence": "69.0 GB \u2192 chunks of 25; MinMax max rel diff 0.0",
+    "cells": "Q8, Q9"
+  },
+  {
+    "claim": "Profiled FP32 vs INT8 on a Snapdragon 8 Gen 3 (Galaxy S24) via Qualcomm AI Hub",
+    "evidence": "3.34 \u2192 2.19 ms; 251/251 layers on NPU, no CPU fallback",
+    "cells": "D3"
+  },
+  {
+    "claim": "Verified on-device outputs against the desktop pipeline",
+    "evidence": "FP32 100% detections matched on 10 images",
+    "cells": "D4"
+  },
+  {
+    "claim": "Benchmarked YOLOv8 n/s/m (mAP, size, CPU latency)",
+    "evidence": "mAP 0.381/0.463/0.512; t1 99/283/738 ms",
+    "cells": "Q4, Q5"
+  }
+]

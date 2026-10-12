@@ -1,0 +1,37 @@
+[
+  {
+    "claim": "YOLOv8 inference in C++17 on the ONNX Runtime C++ API, no framework wrappers",
+    "evidence": "I/O read from model; golden test identical to NB1 logic (5 dets)",
+    "cells": "C9, C20"
+  },
+  {
+    "claim": "Letterbox, HWC\u2192CHW, decode and NMS written from scratch",
+    "evidence": "tensor diff 0.0; NMS == NMSBoxes 20/20 demo, 20/20 eval",
+    "cells": "C14, C25"
+  },
+  {
+    "claim": "Unit-tested",
+    "evidence": "26 passed / 0 failed",
+    "cells": "C31"
+  },
+  {
+    "claim": "Clean under ASan / UBSan / LeakSanitizer",
+    "evidence": "clean: True",
+    "cells": "C24"
+  },
+  {
+    "claim": "C++/Python parity on 100 COCO images",
+    "evidence": "100% of 550 detections matched; float32 diff 0.0",
+    "cells": "C33, C34"
+  },
+  {
+    "claim": "Benchmarked YOLOv8 n/s/m at 1 and multiple threads, C++ vs Python",
+    "evidence": "model-only within 3.2%; pre 2.71\u20133.14\u00d7; decode+NMS 2.14\u20133.32\u00d7; e2e 1.02\u20131.08\u00d7",
+    "cells": "C35, C36, C37"
+  },
+  {
+    "claim": "Diagnosed ORT intra-op spin-wait contention",
+    "evidence": "decode+NMS 2.40 \u2192 2.15 ms; inference std 12.8 \u2192 3.5 ms",
+    "cells": "C38"
+  }
+]
